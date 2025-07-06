@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #f3ec78, #af4261);
+      margin: 0;
+      padding: 0;
+      color: #fff;
+    }
+    .container {
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.7);
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    }
+    .form input, .form textarea, .form button {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: none;
+      border-radius: 50px;
+      position: relative;
+    }
+    .form input, .form textarea {
+      background: #f8f9fa;
+      color: #333;
+    }
+    .form button {
+      background: linear-gradient(90deg, #ff7e5f, #feb47b);
+      color: #fff;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .form button:hover {
+      background: linear-gradient(90deg, #feb47b, #ff7e5f);
+    }
+    .file-input-container {
+      display: flex;
+      align-items: center;
+    }
+    .file-input-container input[type="file"] {
+      flex-grow: 1;
+    }
+    .file-input-container button {
+      margin-left: 10px;
+      background-color: #ff7e5f;
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .file-input-container button:hover {
+      background-color: #feb47b;
+    }
+    .campaign-card {
+      margin-top: 15px;
+      padding: 15px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, #ff6a00, #ee0979);
+      color: white;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+    }
+    .campaign-card img {
+      width: 100%;
+      max-width: 250px;
+      border-radius: 5px;
+    }
+    .campaign-details {
+      max-width: 60%;
+    }
+    .campaign-description {
+      margin: 15px 0;
+    }
+    .bank-details {
+      font-size: 14px;
+    }
+    .qr-code {
+      text-align: center;
+    }
+    .delete-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: red;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+    .delete-btn:hover {
+      background: darkred;
+    }
+    .image-container img {
+      position: relative;
+      top: 10px;
+      left: 570px;
+      width: 150px;
+      height: auto;
+      box-shadow: 0 4px 8px rgba(184, 194, 46, 0.1);
+      transition: transform 0.3s ease-in-out;
+    }
+    a {
+      color: #ffb400;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="image-container">
+    <!-- Image is now clickable and redirects to home page -->
+    <a href="/financial-aid/aid.html">
+        <img src="/healthcare-landing/public/images/finally-modified.png" alt="Dashboard Image">
+    </a>
+  </div>
+  <div class="container">
+    <h1>Dashboard</h1>
+    <div class="form">
+      <input type="text" id="campaignName" placeholder="Campaign Name">
+      <textarea id="campaignDescription" placeholder="Description"></textarea>
+
+      <!-- Combined File & URL input -->
+      <div class="file-input-container">
+        <input type="text" id="campaignImageUrl" placeholder="Enter image URL">
+        <input type="file" id="campaignImage" accept="image/*">
+        <button onclick="document.getElementById('campaignImage').click()">Choose File</button>
+      </div>
+
+      <input type="text" id="bankDetails" placeholder="Bank Details (e.g., Account No, IFSC)">
+      <input type="file" id="paymentQRCode" accept="image/*" >
+      <button onclick="createCampaign()">Create Campaign</button>
+    </div>
+    <div id="campaignList"></div>
+    <a href="/financial-aid/campaign/campaigns.html">Go to Campaigns</a>
+  </div>
+
+  <script>
+    let campaigns = JSON.parse(localStorage.getItem('campaigns')) || [];
+
+    function createCampaign() {
+      const name = document.getElementById('campaignName').value;
+      const description = document.getElementById('campaignDescription').value;
+      const bankDetails = document.getElementById('bankDetails').value;
+      const image = document.getElementById('campaignImage').files[0];
+      const imageUrl = document.getElementById('campaignImageUrl').value;
+      const qrCodeImage = document.getElementById('paymentQRCode').files[0];
+
+      if (!name || !description || !bankDetails || (!image && !imageUrl) || !qrCodeImage) {
+        alert('Please fill out all fields.');
+        return;
+      }
+
+      const campaign = {
+        name,
+        description,
+        bankDetails,
+        imageSrc: imageUrl || URL.createObjectURL(image),
+        qrCodeSrc: URL.createObjectURL(qrCodeImage),
+      };
+
+      campaigns.push(campaign);
+      localStorage.setItem('campaigns', JSON.stringify(campaigns));
+      renderCampaigns();
+    }
+
+    function deleteCampaign(index) {
+      campaigns.splice(index, 1);
+      localStorage.setItem('campaigns', JSON.stringify(campaigns));
+      renderCampaigns();
+      alert('Campaign Deleted!');
+    }
+
+    function renderCampaigns() {
+      const campaignList = document.getElementById('campaignList');
+      campaignList.innerHTML = '';
+      campaigns.forEach((campaign, index) => {
+        const div = document.createElement('div');
+        div.className = 'campaign-card';
+        div.innerHTML = `
+          <div class="campaign-details">
+            <img src="${campaign.imageSrc}" alt="Campaign Image">
+            <h3>${campaign.name}</h3>
+            <div class="campaign-description">${campaign.description}</div>
+            <div class="bank-details">${campaign.bankDetails}</div>
+          </div>
+          <div class="qr-code">
+            <img src="${campaign.qrCodeSrc}" alt="Payment QR Code">
+          </div>
+          <button class="delete-btn" onclick="deleteCampaign(${index})">Delete</button>
+        `;
+        campaignList.appendChild(div);
+      });
+    }
+
+    renderCampaigns();
+  </script>
+</body>
+</html>

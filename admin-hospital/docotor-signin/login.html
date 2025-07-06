@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Registration</title>
+    <link rel="stylesheet" href="sigin.css">
+</head>
+<body>
+    
+    <!-- Hospital Video Background -->
+    <div class="background-video">
+        <video autoplay loop muted class="video-background">
+            <source src="2.mp4" type="video/mp4">
+            Your browser does not support HTML5 video.
+        </video>
+    </div>
+
+    <!-- Main Login Container -->
+    <div class="login-container">
+        <div class="image-container">
+            <!-- Image is now clickable and redirects to home page -->
+            <a href="/index.html">
+                <img src="/healthcare-landing/public/images/finally-modified.png" alt="Dashboard Image">
+            </a>
+        </div>
+        <div class="login-box">
+            <h1>Login</h1>
+            <div class="login-options">
+                <button class="login-option-btn" id="doctor-login-btn">Doctor Login</button>
+                <button class="login-option-btn" id="hospital-login-btn">Hospital Login</button>
+            </div>
+
+            <!-- Doctor Login Form -->
+            <div class="login-form" id="doctor-login-form">
+                <input type="text" placeholder="Enter Doctor ID" id="doctor-id" required autocomplete="off">
+                <input type="password" placeholder="Enter Password" id="doctor-password" required autocomplete="off">
+                <button class="login-btn">Login as Doctor</button>
+                <p class="registration-link" id="doctor-register-btn">Don't have an account? Register as Doctor</p>
+            </div>
+
+            <!-- Hospital Login Form -->
+            <div class="login-form" id="hospital-login-form">
+                <input type="text" placeholder="Enter Hospital ID" id="hospital-id" required>
+                <input type="password" placeholder="Enter Password" id="hospital-password" required>
+                <button class="login-btn">Login as Hospital</button>
+                <p class="registration-link" id="hospital-register-btn">Don't have an account? Register as Hospital</p>
+            </div>
+
+            <!-- Doctor Registration Form -->
+        <div class="registration-form" id="doctor-registration-form">
+            <input type="text" placeholder="Enter Doctor ID" id="new-doctor-id" required>
+            <div class="password-container">
+                <input type="password" placeholder="Create Password" id="new-doctor-password" required>
+                <span class="eye-icon" id="toggle-doctor-password">🙈</span>
+            </div>
+        
+            <!-- Password Strength Indicator with Text -->
+            <!-- Password Strength Indicator with Text -->
+            <div class="password-strength-container">
+                <div id="password-strength" class="password-strength"></div>
+                <span id="password-strength-text">Enter password</span> <!-- Default text -->
+            </div>
+            <input type="email" placeholder="Enter Email" id="doctor-email" required>
+            <input type="text" placeholder="Enter Doctor Name" id="doctor-name" required>
+            <input type="text" placeholder="Enter Specialization" id="doctor-specialization" required>
+            <button class="register-btn">Register as Doctor</button>
+            <p class="back-link" id="back-to-doctor-login">Back to Doctor Login</p>
+        </div>
+
+
+            <!-- Hospital Registration Form -->
+            <div class="registration-form" id="hospital-registration-form">
+                <input type="text" placeholder="Enter Hospital Name" id="hospital-name" required>
+                <input type="text" placeholder="Enter Hospital ID" id="new-hospital-id" required>
+                
+                <div class="password-container">
+                    <input type="password" placeholder="Create Password" id="new-hospital-password" required>
+                </div>
+                
+                
+                <input type="email" placeholder="Enter Email" id="hospital-email" required>
+                <input type="text" placeholder="Enter Hospital Address" id="hospital-address" required>
+                <input type="text" placeholder="Enter Hospital hospital contact " id="hospital-contact" required>
+                <button class="register-btn">Register as Hospital</button>
+                <p class="back-link" id="back-to-hospital-login">Back to Hospital Login</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="signnin.js"></script>
+</body>
+</html>

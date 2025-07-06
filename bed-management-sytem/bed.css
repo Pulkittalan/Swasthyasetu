@@ -1,0 +1,158 @@
+
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        height: 100vh;
+        background: linear-gradient(135deg, #74ebd5, #acb6e5);
+        overflow: hidden;
+    }
+
+    .container {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        padding: 20px;
+        box-sizing: border-box;
+        overflow: hidden;
+    }
+
+    .beds-container {
+        flex: 2;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px; /* Reduced space between beds */
+        padding: 10px; /* Reduced padding */
+        overflow-y: auto;
+        align-items: center; /* Align beds properly */
+    }
+
+    .filter-box {
+        flex: 1;
+        padding: 21px;
+        
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        height: calc(100vh - 40px);
+        overflow-y: auto;
+    }
+
+    .bed {
+        width: 60px; /* Increased size */
+        height: 60px;
+        background-size: cover;
+        transition: transform 0.3s;
+        margin: 0px; /* Reduced margin for better spacing */
+    }
+
+    .bed:hover {
+        transform: scale(1.1);
+    }
+
+    h2,
+    label {
+        color: #333;
+    }
+
+    select,
+    input,
+    button {
+        width: 100%;
+        padding: 8px;
+        margin: 5px 0;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
+
+    button {
+        background: #28a745;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background: #218838;
+    }
+
+    .category-buttons {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .category-title {
+        text-align: left;
+        font-family: Arial, sans-serif;
+        margin-bottom: 0px;
+        padding: 2px;
+        background-color: rgba(255, 255, 255, 0.8);
+        border-radius: 8px;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+        width: fit-content;
+    }
+
+    .category-title h2 {
+        margin: 0;
+        font-size: 18px;
+        color: #333;
+    }
+
+    .category-title p {
+        margin: 5px 0;
+        font-size: 14px;
+        color: #555;
+    }
+
+    .category-buttons button {
+        margin: 5px 0;
+    }
+
+    #bed-selection {
+        display: none;
+    }
+
+    #hospital-location {
+        display: none;
+        margin-top: 20px;
+    }
+
+    #toggle-location {
+        background-color: #007bff;
+        color: white;
+        padding: 10px;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+        text-align: left;
+    }
+
+    #toggle-location:hover {
+        background-color: #0056b3;
+    }
+
+    #map {
+        height: 300px;
+        margin-top: 20px;
+        width: 100%;
+    }
+
+    /* Edit Beds Link */
+    .edit-link {
+        display: inline-block;
+        padding: 8px 15px;
+        border-radius: 8px;
+        background: rgba(0, 255, 150, 0.3);
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        transition: all 0.3s ease-in-out;
+        box-shadow: 0 0 10px rgba(0, 255, 150, 0.4);
+    }
+
+    .edit-link:hover {
+        background: white;
+        color: #00c6ff;
+        box-shadow: 0 0 15px rgba(0, 255, 150, 0.7);
+    }

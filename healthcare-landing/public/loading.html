@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loading Page</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: linear-gradient(to top, #a8e063, #56ab2f);
+      font-family: Arial, sans-serif;
+      overflow: hidden;
+    }
+
+    .loading-container {
+      position: relative;
+      width: 100%;
+      max-width: 800px;
+      height: 300px;
+    }
+
+    .bridge {
+      position: absolute;
+      bottom: 100px;
+      left: 0;
+      right: 0;
+      height: 20px;
+      background: #6c757d;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .person {
+      position: absolute;
+      bottom: 40px;
+      right: 10px;
+      width: 150px;
+      height: 150px;
+      background: url('/healthcare-landing/public/images/heart-removebg-preview\ \(1\).png');
+      background-size: cover;
+      animation: beat 0.8s infinite;
+      animation: walk 2s linear infinite;
+    }
+
+    @keyframes walk {
+      0% { left: -50px; }
+      100% { left: calc(100% - 50px); }
+    }
+
+    .loading-text {
+      position: absolute;
+      top: 20px;
+      width: 100%;
+      text-align: center;
+      font-size: 24px;
+      color: #fff;
+    }
+
+    @keyframes beat {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.2);
+      }
+    }
+
+    /* Add a class to stop the animation */
+    .stop-animation {
+      animation: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="loading-container">
+    <div class="loading-text" id="loadingText">Loading... 0%</div>
+    <div class="bridge"></div>
+    <div class="person" id="person"></div>
+    <div class="heart"></div>
+  </div>
+
+  <script>
+    let percentage = 0;
+    const loadingText = document.getElementById('loadingText');
+    const person = document.getElementById('person');
+
+    const updateLoading = setInterval(() => {
+      if (percentage < 100) {
+        percentage++;
+        loadingText.textContent = `Loading... ${percentage}%`;
+      } else {
+        clearInterval(updateLoading);
+        // Stop the heart animation once the loading is 100%
+        person.classList.add('stop-animation');
+        
+        // Redirect to the new page
+        setTimeout(() => {
+          window.location.href = 'http://127.0.0.1:5500/healthcare-landing/public/index.html'; // Replace with your actual destination page URL
+        }); // 500ms delay before redirect to allow the animation to finish
+      }
+    }, 17); // Adjust speed here
+  </script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Healthcare Aid Platform</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="image-container">
+      <!-- Image is now clickable and redirects to home page -->
+      <a href="/healthcare-landing/public/index.html">
+          <img src="/healthcare-landing/public/images/finally-modified.png" alt="Dashboard Image">
+      </a>
+  </div>
+    <h1>Healthcare Aid Platform</h1>
+    <p>Bridging the Gap in Healthcare Access</p>
+  </header>
+
+  <!-- NGO Section -->
+  <section id="ngos">
+    <h2>Our Partner NGOs</h2>
+    <div class="ngo-list">
+      <div class="ngo-card">
+        <img src="/healthcare-landing//public/images/ngo-or-non-governmental-organization-to-serve-specific-social-and-political-needs-in-template-hand-drawn-cartoon-flat-illustration-vector.jpg" alt="NGO 1">
+        <h3>Hope Foundation</h3>
+        <p>Empowering communities with access to healthcare.</p>
+      </div>
+      <div class="ngo-card">
+        <img src="/healthcare-landing/public/images/ngo-or-non-governmental-organization-to-serve-specific-social-and-political-needs-in-template-hand-drawn-cartoon-flat-illustration-vector (1).jpg" alt="NGO 2">
+        <h3>Care for All</h3>
+        <p>Transforming lives by ensuring proper treatment.</p>
+      </div>
+      <div class="ngo-card">
+        <img src="/healthcare-landing/public/images/OIP (2).jpg" alt="NGO 3">
+        <h3>Humanity First</h3>
+        <p>Connecting people to the care they need.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Active Campaigns Section -->
+  <section id="campaigns" onclick="navigateTo('./campaign/campaigns.html')" class="clickable-section">
+    <h2>Active Campaigns</h2>
+    <p>Explore ongoing campaigns and support patients in need of treatment.</p>
+    <button>View Active Campaigns</button>
+  </section>
+
+ 
+
+  <!-- Real-Time Dashboard Section -->
+  <section id="dashboard" onclick="navigateTo('./dashboard/dashboard.html')" class="clickable-section">
+    <h2>Donation Dashboard</h2>
+    <p>Track the progress of donations for all campaigns in real time.</p>
+    <button>View Dashboard</button>
+  </section>
+
+  <script>
+    // JavaScript to handle navigation
+    function navigateTo(page) {
+      window.location.href = page;
+    }
+  </script>
+</body>
+</html>

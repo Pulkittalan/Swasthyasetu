@@ -1,0 +1,192 @@
+/* General Styling */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f9;
+  color: #333;
+}
+
+/* Header */
+header {
+  background-color: #28a745;
+  color: white;
+  height: 170px;
+  text-align: center;
+}
+header h1{
+  position: relative;
+  bottom: 140px;
+}header p{
+  position: relative;
+  bottom: 140px;
+}
+/* NGO Section */
+#ngos {
+  padding: 20px;
+  background-color: #fff;
+}
+
+.ngo-list {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.ngo-card {
+  width: 250px;
+  text-align: center;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ngo-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.ngo-card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.ngo-card h3 {
+  margin: 10px 0;
+  color: #28a745;
+}
+
+/* Clickable Sections */
+.clickable-section {
+  padding: 20px;
+  margin: 20px auto;
+  text-align: center;
+  background: linear-gradient(135deg, #28a745, #218838);
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  max-width: 600px;
+}
+
+.clickable-section:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.clickable-section button {
+  padding: 10px 20px;
+  background: white;
+  color: #28a745;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.clickable-section button:hover {
+  background: #1e7e34;
+  color: white;
+}
+/* Form Section Styling */
+#donationSection {
+  padding: 30px;
+  background: linear-gradient(135deg, #28a745, #218838);
+  color: white;
+  border-radius: 15px;
+  margin: 20px auto;
+  text-align: center;
+  max-width: 600px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+#donationSection h2 {
+  margin-bottom: 10px;
+  font-size: 2rem;
+}
+
+#donationSection p {
+  margin-bottom: 20px;
+  font-size: 1rem;
+}
+
+/* Form Styling */
+.styled-form {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 1.5s ease;
+}
+
+.styled-form .form-group {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.styled-form label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #28a745;
+}
+
+.styled-form input,
+.styled-form select {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.styled-form input:focus,
+.styled-form select:focus {
+  border-color: #28a745;
+  box-shadow: 0 0 5px rgba(40, 167, 69, 0.5);
+  outline: none;
+}
+
+.styled-form .submit-btn {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  background: linear-gradient(135deg, #28a745, #218838);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.styled-form .submit-btn:hover {
+  background: linear-gradient(135deg, #218838, #1c7430);
+  transform: scale(1.05);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.image-container img {
+  position: relative;
+  right: 500px;
+  top:10px;
+  width: 150px; /* Image width is 80% of its container */
+  height: auto; /* Maintain the aspect ratio */
+  
+  box-shadow: 0 4px 8px rgba(184, 194, 46, 0.1); /* Soft shadow around the image */
+  transition: transform 0.3s ease-in-out; /* Smooth scaling effect on hover */
+}

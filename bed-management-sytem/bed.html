@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Bed Management</title>
+    <link rel="stylesheet" href="bed.css">
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqs5Dc9JNgY_r-G9q5lC5eEmRzsWieyco&libraries=places"></script>
+    </header>
+    <a class="edit-link" href="javascript:history.back()">Home </a>
+    </head>
+
+<body>
+    <div class="container">
+        <div class="beds-container" id="bedStatus"></div>
+        <div class="filter-box">
+            <h2>Hospital Information</h2>
+            <label>Hospital Name: <input type="text" id="hospitalName" placeholder="Enter Hospital Name"></label>
+
+            <button id="toggle-location" onclick="toggleLocation()">Show Hospital Location</button>
+
+            <div id="hospital-location">
+                <h2>Hospital Location</h2>
+                <input type="text" id="location" placeholder="Enter Location">
+                <button onclick="getLocation()">Use My Location</button>
+                <div id="map"></div>
+            </div>
+
+            <h2>Select Category</h2>
+            <div class="category-buttons">
+                <button onclick="selectCategory('ICU')">ICU</button>
+                <button onclick="selectCategory('General Ward')">General Ward</button>
+                <button onclick="selectCategory('Emergency')">Emergency</button>
+                <button onclick="selectCategory('Surgical')">Surgical</button>
+            </div>
+
+            <div id="bed-selection">
+                <h2>Select Beds for <span id="category-name"></span></h2>
+                <label>Total Beds: <input type="number" id="totalBeds"></label>
+                <label>Available Beds: <input type="number" id="availableBeds"></label>
+                <button id="submitButton" onclick="submitBedData()">Submit</button>
+
+            </div>
+
+            <button onclick="showAllBeds()">Show All Beds</button>
+        </div>
+    </div>
+
+    <script src="bed.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telemedicine Services</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+</head>
+
+<body>
+
+    <header>
+        <div class="image-container">
+            <!-- Image is now clickable and redirects to home page -->
+            <a href="/index.html">
+                <img src="/healthcare-landing/public/images/finally-modified.png" alt="Dashboard Image">
+            </a>
+        </div>
+        <h1>Telemedicine Services</h1>
+        <nav>
+            <ul>
+                <li><a href="#video-call-section">Video Call</a></li>
+                <li><a href="#phone-call">Phone Call</a></li>
+                <li><a href="#messaging">Messaging</a></li>
+
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Video Call Section -->
+        <section id="video-call-section">
+            <h2>Start Video Consultation</h2>
+            <p>Click below to connect with a doctor via video call.</p>
+
+            <div id="video-call-container">
+                <!-- Local Video Stream (User's Webcam) -->
+                <video id="local-video" autoplay muted></video>
+                <!-- Remote Video Stream (Doctor's Webcam) -->
+                <video id="remote-video" autoplay></video>
+            </div>
+
+            <!-- Button to start the video call -->
+            <button id="start-video-call">Start Video Call</button>
+            <!-- Button to stop the video call -->
+            <button id="stop-video-call" disabled>Stop Video Call</button>
+
+        </section>
+
+
+        <!-- Phone Call Section -->
+        <section id="phone-call">
+            <h2>Phone Consultation</h2>
+            <p>Click below to start your phone call with the doctor:</p>
+            <button id="start-phone-call">Start Phone Call</button>
+            <button id="stop-phone-call" disabled>Stop Phone Call</button>
+        </section>
+
+        <!-- Messaging Section -->
+        <iframe src=" title="Example Website"></iframe>
+        <section id="messaging">
+            <h2>Online Messaging</h2>
+            <p>Chat with your doctor in real-time:</p>
+            <div id="chat-box">
+                <div id="messages"></div>
+                <input type="text" id="message-input" placeholder="Type a message">
+                <button id="send-message">Send</button>
+            </div>
+        </section>
+        <!-- Prescription Section -->
+        <h1>Patient's Prescription Page</h1>
+
+        <!-- Patient's Prescription Display -->
+        <div class="patient-prescription">
+            <h2>Doctor's Prescription:</h2>
+            <p id="doctorName"></p>
+            <pre id="doctorPrescription"></pre>
+        </div>
+
+        <button id="download-pdf">Download Prescription as PDF</button>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Telemedicine Services</p>
+    </footer>
+
+    <script src="telemedicine.js"></script>
+</body>
+
+</html>

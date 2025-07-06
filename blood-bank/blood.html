@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Bank - Swastheya Setu</title>
+    <style>
+        /* Global Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('./OIP\ \(1\).jpg'); /* Blood Donation Background */
+            background-size: cover;
+            background-position: center;
+            
+            color: #fff;
+            
+            line-height: 1.6;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background-color: rgba(217, 53, 78, 0.8);
+            padding: 15px;
+            position: sticky;
+            top: 0;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 20px;
+            font-size: 20px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #d9534f;
+            transform: scale(1.1);
+        }
+
+        /* Heading Section */
+        .header {
+            text-align: center;
+            padding: 100px 20px;
+            animation: fadeIn 2s ease-out;
+        }
+
+        .header h1 {
+            font-size: 3.5em;
+            text-transform: uppercase;
+            font-weight: bold;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+        }
+
+        .header p {
+            font-size: 1.3em;
+            margin-top: 10px;
+        }
+
+        /* Content Sections */
+        .content {
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .content h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            animation: slideIn 1.5s ease-out;
+        }
+
+        .content p {
+            font-size: 1.2em;
+            margin: 20px 0;
+            opacity: 0;
+            animation: fadeIn 2s forwards;
+        }
+
+        .btn {
+            background-color: #d9534f;
+            padding: 15px 25px;
+            border-radius: 5px;
+            color: white;
+            font-size: 1.1em;
+            text-decoration: none;
+            margin-top: 30px;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #c9302c;
+            transform: scale(1.1);
+        }
+
+        /* Footer Section */
+        footer {
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        footer p {
+            font-size: 1em;
+        }
+
+        /* Animation Keyframes */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideIn {
+            0% {
+                transform: translateX(-100%);
+            }
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        /* Scroll Animation */
+        .scroll-animation {
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeInUp 1.5s forwards;
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Image Section */
+        .image-section {
+            display: flex;
+            justify-content: center;
+            margin: 50px 0;
+        }
+
+        .image-section img {
+            width: 300px;
+            margin: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+            transform: scale(1);
+            transition: transform 0.3s ease;
+        }
+
+        .image-section img:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <a href="hospital-blood-bank.html">Hospital Blood Bank</a>
+        <a href="nearby-donation.html">Nearby Blood Donation</a>
+        <a href="blood-bank-near-me.html">Blood Bank Near Me</a>
+        <a href="request-blood.html">Request Blood</a>
+        <a href="donate-blood.html">Donate Blood</a>
+    </nav>
+
+    <!-- Header Section -->
+    <div class="header">
+        <h1>Welcome to Swastheya Setu</h1>
+        <p>Your one-stop solution for blood donation and request services</p>
+    </div>
+
+    <!-- Content Section 1 -->
+    <div class="content">
+        <h2>Why Blood Donation is Important</h2>
+        <p class="scroll-animation">Blood donation is a vital part of healthcare. It saves lives and helps in medical emergencies. By donating blood, you are giving others a chance to live and thrive.</p>
+    </div>
+
+    <!-- Image Section -->
+    <div class="image-section">
+        <img src="" alt="Blood Donation"> <!-- Blood Donation Image -->
+        <img src="https://images.unsplash.com/photo-1570090501415-bd45b994f9f1" alt="Blood Donation Process"> <!-- Blood Donation Process Image -->
+    </div>
+
+    <!-- Content Section 2 -->
+    <div class="content">
+        <h2>How It Works</h2>
+        <p class="scroll-animation">We provide a seamless platform to help you locate blood donation centers, find nearby hospitals with blood availability, and make requests for blood donations. It's easy to donate or request blood through our website!</p>
+        <a href="hospital-blood-bank.html" class="btn">Find a Blood Bank</a>
+    </div>
+
+    <!-- Content Section 3 -->
+    <div class="content">
+        <h2>Your Contribution Makes a Difference</h2>
+        <p class="scroll-animation">Every donation counts. By donating blood, you are helping patients who urgently need blood transfusions, especially during accidents, surgeries, or medical treatments.</p>
+        <a href="donate-blood.html" class="btn">Donate Now</a>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2025 Swastheya Setu. All Rights Reserved.</p>
+        <p>Blood donation saves lives. Be a hero today!</p>
+    </footer>
+
+</body>
+</html>

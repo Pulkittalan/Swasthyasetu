@@ -1,0 +1,175 @@
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SwasthyaSetu</title>
+    <link rel="stylesheet" href="/healthcare-landing/public/styles.css">
+    <link rel="icon" href="./healthcare-landing/public/images/finally-modified.png" type="image/x-icon">
+    
+    
+
+  </head>
+  <body>
+    
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+      <div class="navbar-container">
+      <img src="/healthcare-landing/public/images/finally-modified.png" alt="Logo" class="logo" />
+      <div class="logo-title">SwasthyaSetu</div>
+      <ul class="nav-links">
+        <li><a href="/blood-bank/blood.html">Blood Donation</a></li>
+        <li><a href="/govt.scheme/govt.html">Govt. schemes</a></li>
+        <li><a href="/find-hospital/findi-hospital.html">Find Hospitals</a></li>
+        <li><a href="/financial-aid/aid.html">Financial Aid</a></li>
+        <li><a href="/telemedicine/telemedicine.html">Telemedicine</a></li>
+        <li><a href="/admin-hospital/docotor-signin/login.html">Admin(Hospitals)</a></li>
+        
+      </ul>
+      <div class="sign-in-container">
+    
+    <!-- Google Sign-In Button -->
+    <button class="google-btn" onclick="window.open('http://localhost:3000/auth/google', 'Google Sign In', 'width=500,height=500')">
+      <img src="/healthcare-landing/public/images/google.png" alt="Google Logo">
+      <span>Sign in</span>
+    </button>
+  </div>
+    </nav>
+
+    <!-- Image Slider Section -->
+    <section class="slider">
+      <div class="slide-container">
+        <div class="slide"><img src="/healthcare-landing/public/images/slide1.jpg" alt="Healthcare 1"></div>
+        <div class="slide"><img src="/healthcare-landing/public/images/slider2.png" alt="Healthcare 2"></div>
+        <div class="slide"><img src="/healthcare-landing/public/images/slider3.jpg" alt="Healthcare 3"></div>
+        <div class="slide"><img src="/healthcare-landing/public/images/slider6.jpg" alt="Healthcare 4"></div>
+      </div>
+    </section>
+
+    <!-- Banner Section with Search -->
+    <section class="banner">
+      <button class="sos-button" onclick="callEmergency()">
+        🚨 Emergency SOS
+    </button>
+      <div class="banner-content">
+        <h2>Find Healthcare Services Near You</h2>
+        <div class="search-bar">
+          <input type="text" placeholder="Search hospitals, treatments..." />
+          <button class="search-btn">
+            <img src="/healthcare-landing/public/images/search.png" alt="Search" class="search-icon" />
+          </button>
+        </div>
+      </div>
+    </section>
+   
+
+
+
+
+
+    <section id="home" class="hero">
+      <div class="hero-content">
+        <h1>Welcome to SwasthyaSetu</h1>
+        <p>Your one-stop solution for accessible healthcare services.</p>
+        <h2>Explore Services</h2>
+      </div>
+      <div class="hero-image">
+        <img src="/healthcare-landing/public/images/helcare.jpeg" alt="Healthcare" />
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+      <h2>Our Services</h2>
+      <div class="service-container">
+        <div class="service-card">
+          <img src="/healthcare-landing/public/images/hospital.png" alt="Find Hospitals" />
+          <h2>Find Hospitals</h2>
+          <p>Search and filter hospitals by location, specialty, and reviews.</p>
+        </div>
+        <div class="service-card">
+          <img src="/healthcare-landing/public/images/telemed-removebg-preview.png" alt="Telemedicine" />
+          <h2>Telemedicine</h2>
+          <p>Get expert consultations and prescriptions online.</p>
+        </div>
+        <div class="service-card">
+          <img src="/healthcare-landing/public/images/aid.png" alt="Financial Aid" />
+          <h2>Financial Aid</h2>
+          <p>Apply for assistance to cover your healthcare costs.</p>
+        </div>
+        <div class="service-card">
+          <img src="/healthcare-landing/public/images/labtest.png" alt="lab testing" />
+          <h2>Lab test</h2>
+          <p>Facilitate at-home collection of samples and deliver test results digitally.</p>
+        </div>
+        <div class="service-card">
+          <img src="/healthcare-landing/public/images/scheme.png" alt="scheme" />
+          <h2>Goverment Scheme</h2>
+          <p>Helps users navigate government health schemes, insurance, or subsidies for treatment.</p>
+        </div>
+        <div class="service-card">
+          <img src="/healthcare-landing/public/images/ngo (2).png" alt="ngo" />
+          <h2>Integrated NGO'S</h2>
+          <p>Integration with NGOs to organize health camps.</p>
+        </div>
+        
+      </div>
+    </section>
+
+    <!-- Testimonial Section -->
+    
+
+    
+
+    <!-- Video Section -->
+    <section class="video-section">
+      <h2>Learn More About Us</h2>
+      <div class="video-container">
+        <video controls>
+          <source src="" type="video/mp5">
+          Your browser does not support the video tag.
+        </video>
+        <div class="video-description">
+          <p>Watch this video to know more about SwasthyaSetu and how we are revolutionizing healthcare accessibility.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <div class="contact-container">
+      <h2>Get In Touch</h2>
+      <p>We'd love to hear from you! Fill out the form below, and we'll get back to you as soon as possible.</p>
+      <form class="contact-form">
+        <div class="form-group">
+          <input type="text" placeholder="Your Name" required />
+        </div>
+        <div class="form-group">
+          <input type="email" placeholder="Your Email" required />
+        </div>
+        <div class="form-group">
+          <textarea placeholder="Your Message" rows="5" required></textarea>
+        </div>
+        <button type="submit" class="btn-primary">Submit</button>
+      </form>
+    </div>
+  </section>
+
+
+    <footer class="footer">
+      <div class="footer-container">
+        <p>© 2025 SwasthyaSetu. All rights reserved.</p>
+        <ul class="social-links">
+          <li><a href="#">Facebook</a></li>
+          <li><a href="#">Twitter</a></li>
+          <li><a href="#">Instagram</a></li>
+        </ul>
+      </div>
+    </footer>
+    
+    <script src="/healthcare-landing/public/script.js"></script>
+    
+  
+  </body>
+  </html>

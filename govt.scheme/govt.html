@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Government Schemes</title>
+    <link rel="stylesheet" href="gov.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Government Schemes</h1>
+        <a href="javascript:history.back()" id="back-button">
+            <img src="/healthcare-landing/public/images/finally-modified.png" alt="Go Back" id="back-icon">
+        </a>
+
+        <label for="filter">Filter by Age Group or Eligibility:</label>
+        <input type="text" id="filter" placeholder="Enter Age Group or Eligibility" onkeyup="filterSchemes()">
+
+        <table id="schemes-table">
+            <thead>
+                <tr>
+                    <th>Scheme Name</th>
+                    <th>Benefit</th>
+                    <th>Eligibility</th>
+                    <th>Age Group</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+    
+    <script src="gov.js"></script>
+</body>
+</html>

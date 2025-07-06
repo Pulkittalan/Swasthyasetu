@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Find Hospital</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <link rel="stylesheet" href="hospital.css">
+  <style>
+    #map { height: 500px; }
+  </style>
+</head>
+<body>
+  <div id="filter-box">
+    <h3>Filter Hospitals</h3>
+    <label for="hospital-type">Hospital Type:</label>
+    <select id="hospital-type">
+      <option value="all">All</option>
+      <option value="public">Public</option>
+      <option value="private">Private</option>
+    </select>
+    <label for="distance">Distance (km):</label>
+    <input type="number" id="distance" min="0" placeholder="Distance in km">
+    <button onclick="filterHospitals()">Apply Filters</button>
+  </div>
+  
+  <div id="map"></div>
+
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script>
+    const map = L.map('map').setView([28.4707769, 77.5053503], 13); // Default to a location, e.g., Greater Noida
+    
+    // OpenStreetMap Tile Layer
+    const tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    // Hospital Data
+    const hospitals = [
+      { id: 1, name: 'Kailash Hospital', type: 'public', lat: 28.4707769, lon: 77.5053503 },
+      { id: 2, name: 'NAVIN HOSPITAL', type: 'private', lat: 28.5498211, lon: 77.5499871 },
+      // Add more hospitals as needed
+    ];
+
+    let userLocation = null;
+
+    // Haversine formula to calculate distance in km
+    function haversine(lat1, lon1, lat2, lon2) {
+      const R = 6371; // Radius of the Earth in km
+      const dLat = (lat2 - lat1) * (Math.PI / 180);
+      const dLon = (lon2 - lon1) * (Math.PI / 180);
+      const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+                Math.cos(lat1 * (Math.PI / 180)) * Math.cos(lat2 * (Math.PI / 180)) *
+                Math.sin(dLon / 2) * Math.sin(dLon / 2);
+      const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+      return R * c; // Distance in km
+    }
+
+    // Get user's location and set up the map
+    function initMap() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+          const lat = position.coords.latitude;
+          const lon = position.coords.longitude;
+          userLocation = { lat, lon };
+
+          // Set the map view to user's location
+          map.setView([lat, lon], 13);
+
+          // Add a marker for the user's location
+          L.marker([lat, lon]).addTo(map)
+            .bindPopup("You are here")
+            .openPopup();
+
+          // Add hospital markers after the user location is obtained
+          addHospitalMarkers();
+        }, function(error) {
+          alert("Unable to retrieve your location. Please try again.");
+        });
+      } else {
+        alert("Geolocation is not supported by this browser.");
+      }
+    }
+
+    // Add hospital markers and calculate distance from user
+    function addHospitalMarkers() {
+      hospitals.forEach(hospital => {
+        const distance = haversine(userLocation.lat, userLocation.lon, hospital.lat, hospital.lon);
+        
+        // Add a marker for each hospital
+        L.marker([hospital.lat, hospital.lon]).addTo(map)
+          .bindPopup(`<b>${hospital.name}</b><br>Type: ${hospital.type}<br>Distance: ${distance.toFixed(2)} km`);
+      });
+    }
+
+    // Filter hospitals based on selected criteria
+    function filterHospitals() {
+      const selectedType = document.getElementById('hospital-type').value;
+      const maxDistance = document.getElementById('distance').value;
+
+      // Remove all existing markers
+      map.eachLayer(function(layer) {
+        if (layer instanceof L.Marker) {
+          map.removeLayer(layer);
+        }
+      });
+
+      // Re-add user location marker
+      L.marker([userLocation.lat, userLocation.lon]).addTo(map)
+        .bindPopup("You are here")
+        .openPopup();
+
+      // Add filtered hospital markers
+      hospitals.forEach(hospital => {
+        const distance = haversine(userLocation.lat, userLocation.lon, hospital.lat, hospital.lon);
+        const matchType = selectedType === 'all' || hospital.type === selectedType;
+        const matchDistance = maxDistance === '' || distance <= maxDistance;
+
+        if (matchType && matchDistance) {
+          L.marker([hospital.lat, hospital.lon]).addTo(map)
+            .bindPopup(`<b>${hospital.name}</b><br>Type: ${hospital.type}<br>Distance: ${distance.toFixed(2)} km`);
+        }
+      });
+    }
+
+    // Initialize map and get user location
+    initMap();
+  </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <link rel="stylesheet" href="/healthcare-landing/public/styles.css">
+</head>
+<body>
+
+    <nav class="navbar">
+      <div class="navbar-container">
+        <img src="./healthcare-landing/public/images/finally-modified.png" alt="Logo" class="logo" />
+        <div class="logo-title">SwasthyaSetu</div>
+        <ul class="nav-links">
+          <li><a href="/">Home</a></li>
+          <li><a href="/telemedicine/telemedicine.html">Telemedicine</a></li>
+        </ul>
+        <div class="user-profile">
+          <img id="userPic" class="profile-pic" src="" alt="Profile">
+          <p id="userName"></p>
+          <a href="http://localhost:3000/logout">Logout</a>
+        </div>
+      </div>
+    </nav>
+
+    <main>
+      <h1>Welcome to Your Dashboard</h1>
+      <p>Here you can manage your healthcare appointments and telemedicine services.</p>
+    </main>
+
+    <script>
+      fetch('http://localhost:3000/profile', { credentials: 'include' })
+        .then(response => response.json())
+        .then(user => {
+          if (user.name) {
+            document.getElementById("userName").innerText = user.name;
+            document.getElementById("userPic").src = user.picture;
+          }
+        })
+        .catch(error => console.error('Error fetching user profile:', error));
+    </script>
+
+</body>
+</html>
